@@ -54,5 +54,6 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 # Install required packages
 pip install -r requirements.txt
 
+```
 ## License
 Copyright © 2024 Ian Kamar. All rights reserved.
