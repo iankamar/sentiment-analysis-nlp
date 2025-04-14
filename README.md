@@ -13,46 +13,52 @@ This project explores and compares different RNN-based models for binary text cl
 ## Models and Results
 
 The following models were implemented and evaluated:
-- **LSTM**: Single-layer LSTM model — 68.5% accuracy
-- **GRU (1-layer)**: Single-layer GRU model — 68.2% accuracy
-- **GRU (2-layer)**: Two-layer GRU model — 32.2% accuracy
-- **LSTM-GRU Hybrid**: Combined architecture — 63.3% accuracy
 
-Performance was assessed using accuracy and ROC curve analysis. Single-layer models showed the most consistent results.
+| Model                | Accuracy | Notes                          |
+|----------------------|----------|--------------------------------|
+| LSTM                 | 50.5%    | Single-layer implementation    |
+| GRU (1-layer)        | 49.9%    | Base GRU architecture          |
+| GRU (1-layer, 10-epoch)| 50.3% | Extended training duration     |
+| GRU (2-layer)        | 50.5%    | Deeper architecture            |
+| LSTM-GRU Hybrid      | 50.7%    | Combined approach              |
+
+Key findings:
+- All models achieved comparable performance (49.9%-50.7% accuracy)
+- The hybrid LSTM-GRU showed marginal improvement (50.7%)
+- ROC curve analysis revealed similar discriminative power across architectures
 
 ## Implementation Details
 
 The project includes a full NLP pipeline:
-- Text tokenization and vocabulary encoding
-- Vocabulary construction and padding
-- Dataset batching with TensorFlow
-- RNN model construction and training
-- Evaluation and visualization of performance metrics
+1. Text preprocessing (tokenization, vocabulary encoding)
+2. Sequence padding and dataset batching
+3. Model architecture development in TensorFlow/Keras
+4. Training with early stopping and validation
+5. Performance evaluation (accuracy, ROC curves, confusion matrices)
 
 ## Technologies Used
 
-- Python 3.7+
-- TensorFlow / Keras
-- NumPy
-- pandas
-- Matplotlib
-- Seaborn
+- **Core**: Python 3.7+, TensorFlow 2.x, Keras
+- **Data Processing**: NumPy, pandas
+- **Visualization**: Matplotlib, Seaborn
+- **Environment Management**: pip, virtualenv
 
 ## Setup and Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/iankamar/sentiment-analysis-rnn.git
-
-# Navigate to the project directory
 cd sentiment-analysis-rnn
 
-# (Optional) Create a virtual environment
+# Create and activate virtual environment
 python -m venv .venv
-source .venv/bin/activate      # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# Install required dependencies
+# Install dependencies
 pip install -r requirements.txt
+
+# Launch Jupyter Lab
+jupyter lab
 
 
 ## License
