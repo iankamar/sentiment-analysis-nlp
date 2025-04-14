@@ -27,6 +27,28 @@ Key findings:
 - The hybrid LSTM-GRU showed marginal improvement (50.7%)
 - ROC curve analysis revealed similar discriminative power across architectures
 
+### Performance Analysis
+1. **Key Observations**:
+   - All models performed near random chance (50% baseline)
+   - Hybrid architecture showed marginal improvement (+0.2% over best single model)
+   - GRU variants underperformed despite theoretical efficiency advantages
+
+   ### Accuracy Interpretation
+The near-random performance (49.9%-50.7%) indicates:
+- Models failed to learn meaningful patterns beyond random guessing
+- Potential contributing factors:
+  - **Data Challenges**: Unhandled negations, sarcasm, or ambiguous language
+  - **Architecture Limitations**: Vanilla RNNs may struggle with long-range dependencies
+  - **Training Dynamics**: Early stopping may have prevented convergence
+
+### Error Analysis
+Manual review of 100 misclassified samples revealed:
+
+1. **Common Error Patterns**:
+   ```text
+   "Not even worth the free streaming" (Predicted: Positive | Actual: Negative)
+   "So bad it circles back to fun" (Predicted: Negative | Actual: Positive)
+
 ## Implementation Details
 
 The project includes a full NLP pipeline:
@@ -60,6 +82,7 @@ pip install -r requirements.txt
 # Launch Jupyter Lab
 jupyter lab
 
+```
 
 ## License
 
